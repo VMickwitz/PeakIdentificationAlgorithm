@@ -5,6 +5,6 @@ Please refer to Mickwitz et al. (2025) for further details about the algorithm p
 
 This code is copywrite to Valter Mickwitz. All contributions are welcome. Due to limited testing and userbase bugs and crashes are likely, if you do not have time to update the code accordingly please do not hesitate to contact valter.mickwitz@helsinki.fi. With more users and reports the code can be improved over time. 
 
-I thank the Heikki Junninen and the tofWare team for inspiring parts of this code.
+I thank the Heikki Junninen and the tofWare team for inspiring this project.
 
 Disclaimer: No responsibility fos taken for loss of data or damage to software or hardware when using this code.
