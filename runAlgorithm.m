@@ -44,7 +44,7 @@ param.lims = [-0.3 0.4]; % Edit
 param.peakRange = [0 11]; % Edit
 
 % compF is the list of potential compounds to use.
-param.compF = importdata("potentialList100_600.mat"); % Edit
+param.compF = importdata("potentialListCIMS.mat"); % Edit
 
 % Limits for the what the average number of peaks per unit mass may be.
 % This restricts the values of parameter A during the algorithm running.
