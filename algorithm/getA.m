@@ -1,5 +1,7 @@
 function fit = getA(fit,doPeaks,doPlot)
-%GETA Calculates a good value of A.
+% GETA Determines a suitable value of A.
+% Method improved to be more robust than the one described in 
+% Mickwitz et al. (2025).
 
 Afit = fit.fitPrelim;
 param = fit.param;
@@ -257,7 +259,7 @@ if iA > iul
     warning("A value likely too high.")
 elseif iA < ill
     iA = ill;
-    warning("Avalue likely too low.")
+    warning("A value likely too low.")
 end
 
 end
