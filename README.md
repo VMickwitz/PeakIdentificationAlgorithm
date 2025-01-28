@@ -1,5 +1,5 @@
 # PeakIdentificationAlgorithm
-Code package for automated peak identification in complex mass spectra. 
+Matlab code package for automated peak identification in complex mass spectra. Latest testing in Matlab2023b.
 
 Please refer to Mickwitz et al. (2025) for further details about the algorithm processes. If you do use the algorithm for analysis of data, please cite the afore mentioned paper.
 
