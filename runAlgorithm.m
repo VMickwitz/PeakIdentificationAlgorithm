@@ -77,18 +77,19 @@ verb = true;    % Change (boolean, determines amount of output)
 doPre = true;   % Change (boolean, determines if the algorithm should run 
                 % the preliminary fitting or not).
 fit = autoFit(fit,saveName,verb,doPre);
-save(saveName,"fit")
+%save(saveName,"fit")
 %% Plots results for individual masses and displays the potential compounds
 
 % This section can be used to check results at individual masses before 
 % exporting the peaklist.
-M = 340; % Change
+M = 308; % Edit
 list = param.compF;
 
 if M < fit.param.massRange(1) || M > fit.param.massRange(end)
     warning("Mass outside of analyzed range. No plot generated.")
 else
     plotMass(fit,M,'sparseLegend',true);
+    completeFig();
     ind = round(fit.PeakList) == M;
     iList = round(list.mass) == M;
     locatedCompounds = [string(fit.PeakList(ind)) fit.CompNams(ind)] %#ok<NOPTS>
@@ -105,7 +106,7 @@ filepath = strrep(saveName,".mat","")+"_list.txt"; %Change
 % If you want a different format you can edit the exportPeakList function
 % or contact valter.mickwitz@helsinki.fi
 format = "tofware";
-exportPeakList(fit,filepath,format);
+%exportPeakList(fit,filepath,format);  % Uncomment to export
 % The generated .txt file can be directly imported to the software
 % specified by the format input for further analysis.
 

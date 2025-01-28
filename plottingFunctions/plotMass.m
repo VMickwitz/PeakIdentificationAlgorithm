@@ -113,7 +113,7 @@ pCol = getColors("poster");
 xcol = pCol(2,:);
 wdth = 2;
 
-if modnams
+if modnams && ~isempty(nams)
     nam1 = modCompNam(nams');
     if any(strcmp(nam1,""))
         ifix = strcmp(nam1,"");
