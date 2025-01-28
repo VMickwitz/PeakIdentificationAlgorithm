@@ -35,7 +35,7 @@ if ~isfield(param,'peakList')
     param.peakList = [];
 end
 if isfield(param,'Isotopes')
-    doIsotopes = fitStruct.param.Isotopes
+    doIsotopes = fitStruct.param.Isotopes;
 end
 if isfield(param,'peakThreshold')
     peakThreshold = param.peakThreshold;
@@ -43,9 +43,6 @@ end
 if isfield(param,'dummy')
     dummy = param.dummy;
 end
-
-param.compF
-param.compF(300,compPar)
 
 peakList = param.peakList;
 

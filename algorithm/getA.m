@@ -29,7 +29,6 @@ else
     fprintf("Getting peak numbers as a function of A...\n")
     k = size(Afit.chi,2);
     inan = ~isnan(Afit.chi);
-    size(inan)
     chiend = nan(k,1);
     for i = 1:k
         %ind = find(inan(:,i);
@@ -47,7 +46,6 @@ else
     % Remove nan and 0 values
     irm = isnan(Lsort) | Lsort==0;
     iSort(irm) = [];
-    all(isnan(Afit.numbers)==isnan(squeeze(lims(:,1,:))),'all')
     % Get the relevant values
     As = llim(iSort);
     % Add edge values for nicer plots, and initialization
@@ -135,10 +133,7 @@ fit.fitPrelim.Aprime = As(iA);
 
 if doPlot
 
-    %[~,ax] = initPlot();
     t = mkTiles([2 2]);
-    %f = t.Parent;
-    %f.Position = [0 0 900 300];
     ax = addTile(t);
     grid minor
     plot(As,peakN/m)
@@ -151,12 +146,13 @@ if doPlot
     plot(As,isMax)
     hold off
     xline(As(iA),'k-','LineWidth',1.5);
-    legend(["Average number of peaks" "Fraction at max"])
-
+    legend(["Average number of peaks" "Fraction at max"],'Location','northwest')
+    
+    iplot = peakN <= par(2);
     ax = addTile(t);
     grid minor
     plot(peakN/m,chimu);%./(peakN/peakN(end-1)))
-    plot(peakN/m,fval,'-.')
+    plot(peakN(iplot)/m,fval(iplot),'-.')
     xline(peakN(iA)/length(fit.param.massRange),'k-','LineWidth',1.5)
     ylabel("Mean relative $\chi^2$ value")
     xlabel("Number of peaks per unit mass")
@@ -164,8 +160,6 @@ if doPlot
     ylim([1, 1+5*(chimu(iA)-1)])
     xlim([0,12])
     legend(["Data" "Fit"])
-    completeTiles();
-    addLabels(t,'northwest','alpha');
 
     ax3 = addTile(t);
     [AA,MM] = meshgrid(As,fit.param.massRange);
@@ -178,6 +172,9 @@ if doPlot
     xlim([As(1), As(end)])
     cb = colorbar(ax3,'eastoutside');
     cb.Label.String = "Number of peaks";
+    completeTiles();
+
+    % addLabels(t,'northwest','alpha');
 end
 
 end
