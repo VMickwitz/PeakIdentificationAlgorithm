@@ -1,7 +1,11 @@
 
 %% Clear other variables. Can be skipped.
-% Lines marker with "%Edit" should be changed by the user.
+% Lines marked with "%Edit" should be changed by the user.
 % Lines marked with "%Change" can be changed by an experienced user.
+
+% If you improve any functions related to the algorithm, please consider
+% uploading it to github or sending it to valter.mickwitz@helsinki.fi for
+% the benefit of other users.
 
 clear;
 
@@ -11,7 +15,8 @@ clear;
 % peaklist generation to a new folder, and specify the path here. This will
 % ensure your original data files are not lost due to bugs.
 
-% This will open a gui asking you to provide the folder with your data.
+% This will open a gui asking you to provide the files with your data.
+% Make sure your files contain mass calibration and peak shape data.
 [files, dataPath] = uigetfile(["*.h5" "*.hdf"],'MultiSelect','on');
 
 % .mat file where the results will be saved. If a file already exists it
@@ -30,7 +35,7 @@ addAppPaths(); % Adds relevant paths to matlab path.
 %% Define parameters for algorithm, these can all be tweaked.
 
 % massRange determines whitch integer masses will be analyzed
-param.massRange = 150:399; % Edit
+param.massRange = 300:310; % Edit
 
 % lims determine the window within which peaks are searched around an
 % integer mass, eg. [-0.2 0.3] means the algorithm looks for peaks at
@@ -97,6 +102,8 @@ filepath = strrep(saveName,".mat","")+"_list.txt"; %Change
 %filepath = [];
 
 % Currently the only available export format is "tofware".
+% If you want a different format you can edit the exportPeakList function
+% or contact valter.mickwitz@helsinki.fi
 format = "tofware";
 exportPeakList(fit,filepath,format);
 % The generated .txt file can be directly imported to the software
