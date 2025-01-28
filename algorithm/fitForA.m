@@ -76,7 +76,6 @@ removed = nan(size(specs,2),n);
 chi = nan((pmax+1-pmin),n);
 BLs = nan((pmax+1-pmin),n);
 
-n
 % Loop through all masses
 h = waitbar(0,'Getting fit results...');
 for i = 1:n
