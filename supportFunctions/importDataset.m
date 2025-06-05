@@ -38,7 +38,7 @@ if ischar(fnames)
     fnames = {fnames};
 end
 
-nfiles = size(fnames,2);
+nfiles = length(fnames);
 ticksz = ceil(nfiles/100);
 iupdate = ticksz;
 fileSpecs = nan(nfiles,1);
